@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 
-namespace EduCare.DesignPatterns.Strategy.Concrete
+namespace EduCare.DesignPatterns.Strategy.BadWay.Concrete
 {
     public class FileLogger
     {
@@ -17,12 +17,15 @@ namespace EduCare.DesignPatterns.Strategy.Concrete
             SetupEnvironment();
         }
 
-        public void LogToFile(ActionLog log)
+        public void LogToFile(string logContent)
         {
             var content = File.ReadAllText(_path);
             var writtenLogs = JsonConvert.DeserializeObject<List<ActionLog>>(content);
             if (writtenLogs == null)
                 writtenLogs = new List<ActionLog>();
+            var log = new ActionLog(logContent);
+            log.Id = Guid.NewGuid();
+            log.Created = DateTime.Now;
             writtenLogs.Add(log);
             var logText = JsonConvert.SerializeObject(writtenLogs);
             File.WriteAllText(_path, logText);

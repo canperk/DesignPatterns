@@ -1,14 +1,7 @@
-﻿using EduCare.DesignPatterns.Strategy.Concrete;
+﻿using EduCare.DesignPatterns.Strategy.BadWay.Concrete;
 using EduCare.DesignPatterns.Strategy.Enums;
 using EduCare.DesignPatterns.Strategy.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EduCare.DesignPatterns.Strategy
@@ -69,10 +62,7 @@ namespace EduCare.DesignPatterns.Strategy
         private void SaveToDisk()
         {
             var logger = new FileLogger();
-            var log = new ActionLog(rtbLog.Text);
-            log.Id = Guid.NewGuid();
-            log.Created = DateTime.Now;
-            logger.LogToFile(log);
+            logger.LogToFile(rtbLog.Text);
         }
     }
 }

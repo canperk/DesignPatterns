@@ -51,9 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Concrete\FileLogger.cs" />
-    <Compile Include="Concrete\FtpLogger.cs" />
-    <Compile Include="Concrete\SqlLogger.cs" />
+    <Compile Include="BadWay\Concrete\FileLogger.cs" />
+    <Compile Include="BadWay\Concrete\FtpLogger.cs" />
+    <Compile Include="BadWay\Concrete\SqlLogger.cs" />
     <Compile Include="Enums\LogType.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -89,6 +89,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GoodWay\Concrete\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

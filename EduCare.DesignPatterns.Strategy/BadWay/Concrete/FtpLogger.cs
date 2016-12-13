@@ -7,7 +7,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 
-namespace EduCare.DesignPatterns.Strategy.Concrete
+namespace EduCare.DesignPatterns.Strategy.BadWay.Concrete
 {
     public class FtpLogger
     {

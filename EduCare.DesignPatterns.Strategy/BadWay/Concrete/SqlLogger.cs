@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Data.SqlClient;
 
-namespace EduCare.DesignPatterns.Strategy.Concrete
+namespace EduCare.DesignPatterns.Strategy.BadWay.Concrete
 {
     public class SqlLogger
     {
