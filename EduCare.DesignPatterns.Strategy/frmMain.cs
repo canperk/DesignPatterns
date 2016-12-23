@@ -1,4 +1,4 @@
-﻿using EduCare.DesignPatterns.Strategy.BadWay.Concrete;
+﻿using EduCare.DesignPatterns.Strategy.GoodWay.Concrete;
 using EduCare.DesignPatterns.Strategy.Enums;
 using EduCare.DesignPatterns.Strategy.Models;
 using System;
@@ -27,42 +27,47 @@ namespace EduCare.DesignPatterns.Strategy
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            Logger logger = null;
             switch (SelectedType)
             {
                 case LogType.LocalDisk:
-                    SaveToDisk();
+                    logger = new Logger(new FileLogger());
                     break;
                 case LogType.Ftp:
-                    SaveToFtpServer();
+                    logger = new Logger(new FtpLogger());
                     break;
                 case LogType.Database:
-                    SaveToSql();
+                    logger = new Logger(new SqlLogger());
                     break;
             }
+
+            logger.Save(rtbLog.Text);
         }
 
-        private void SaveToFtpServer()
-        {
-            var logger = new FtpLogger();
-            var log = new ActionLog(rtbLog.Text);
-            log.Id = Guid.NewGuid();
-            log.Created = DateTime.Now;
-            logger.UploadToServer(log);
-        }
+        #region Bay Way Methods
+        //private void SaveToFtpServer()
+        //{
+        //    var logger = new FtpLogger();
+        //    var log = new ActionLog(rtbLog.Text);
+        //    log.Id = Guid.NewGuid();
+        //    log.Created = DateTime.Now;
+        //    logger.UploadToServer(log);
+        //}
 
-        private void SaveToSql()
-        {
-            var logger = new SqlLogger();
-            var log = new ActionLog(rtbLog.Text);
-            log.Id = Guid.NewGuid();
-            log.Created = DateTime.Now;
-            logger.SaveLog(log);
-        }
+        //private void SaveToSql()
+        //{
+        //    var logger = new SqlLogger();
+        //    var log = new ActionLog(rtbLog.Text);
+        //    log.Id = Guid.NewGuid();
+        //    log.Created = DateTime.Now;
+        //    logger.SaveLog(log);
+        //}
 
-        private void SaveToDisk()
-        {
-            var logger = new FileLogger();
-            logger.LogToFile(rtbLog.Text);
-        }
+        //private void SaveToDisk()
+        //{
+        //    var logger = new FileLogger();
+        //    logger.LogToFile(rtbLog.Text);
+        //} 
+        #endregion
     }
 }
