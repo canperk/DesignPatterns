@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduCare.DesignPatterns.Fact
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduCare.DesignPatterns.Strategy", "EduCare.DesignPatterns.Strategy\EduCare.DesignPatterns.Strategy.csproj", "{DC3D744B-CF9E-42A8-9C3B-565ADE1368A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduCare.DesignPatterns.Composite", "EduCare.DesignPatterns.Composite\EduCare.DesignPatterns.Composite.csproj", "{1C90FC82-70B5-41FD-A910-DB61C2FAAB69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{DC3D744B-CF9E-42A8-9C3B-565ADE1368A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC3D744B-CF9E-42A8-9C3B-565ADE1368A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC3D744B-CF9E-42A8-9C3B-565ADE1368A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C90FC82-70B5-41FD-A910-DB61C2FAAB69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C90FC82-70B5-41FD-A910-DB61C2FAAB69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C90FC82-70B5-41FD-A910-DB61C2FAAB69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C90FC82-70B5-41FD-A910-DB61C2FAAB69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
