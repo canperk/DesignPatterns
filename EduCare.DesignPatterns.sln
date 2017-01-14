@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Composite", "Composite", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduCare.DesignPatterns.Composite.RealWorld", "EduCare.DesignPatterns.Composite.RealWorld\EduCare.DesignPatterns.Composite.RealWorld.csproj", "{E56B69DB-521E-4B39-B6DF-DF2228D88312}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduCare.DesignPatterns.Builder", "EduCare.DesignPatterns.Builder\EduCare.DesignPatterns.Builder.csproj", "{4E01C312-2803-421A-817F-8F7E3D40C505}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,22 @@ Global
 		{E56B69DB-521E-4B39-B6DF-DF2228D88312}.Release|x64.Build.0 = Release|Any CPU
 		{E56B69DB-521E-4B39-B6DF-DF2228D88312}.Release|x86.ActiveCfg = Release|Any CPU
 		{E56B69DB-521E-4B39-B6DF-DF2228D88312}.Release|x86.Build.0 = Release|Any CPU
+		{4E01C312-2803-421A-817F-8F7E3D40C505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E01C312-2803-421A-817F-8F7E3D40C505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E01C312-2803-421A-817F-8F7E3D40C505}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{4E01C312-2803-421A-817F-8F7E3D40C505}.Debug|ARM.Build.0 = Debug|Any CPU
+		{4E01C312-2803-421A-817F-8F7E3D40C505}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4E01C312-2803-421A-817F-8F7E3D40C505}.Debug|x64.Build.0 = Debug|Any CPU
+		{4E01C312-2803-421A-817F-8F7E3D40C505}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4E01C312-2803-421A-817F-8F7E3D40C505}.Debug|x86.Build.0 = Debug|Any CPU
+		{4E01C312-2803-421A-817F-8F7E3D40C505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E01C312-2803-421A-817F-8F7E3D40C505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E01C312-2803-421A-817F-8F7E3D40C505}.Release|ARM.ActiveCfg = Release|Any CPU
+		{4E01C312-2803-421A-817F-8F7E3D40C505}.Release|ARM.Build.0 = Release|Any CPU
+		{4E01C312-2803-421A-817F-8F7E3D40C505}.Release|x64.ActiveCfg = Release|Any CPU
+		{4E01C312-2803-421A-817F-8F7E3D40C505}.Release|x64.Build.0 = Release|Any CPU
+		{4E01C312-2803-421A-817F-8F7E3D40C505}.Release|x86.ActiveCfg = Release|Any CPU
+		{4E01C312-2803-421A-817F-8F7E3D40C505}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
