@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduCare.DesignPatterns.Buil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduCare.DesignPatterns.DataTransferObject", "EduCare.DesignPatterns.DataTransferObject\EduCare.DesignPatterns.DataTransferObject.csproj", "{B3FC7438-3043-436F-9315-589D32A095AC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduCare.DesignPatterns.DependencyInjection", "EduCare.DesignPatterns.DependencyInjection\EduCare.DesignPatterns.DependencyInjection.csproj", "{CC494EF4-BB24-4DBB-90EB-82D40A1C8F36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -137,6 +139,22 @@ Global
 		{B3FC7438-3043-436F-9315-589D32A095AC}.Release|x64.Build.0 = Release|Any CPU
 		{B3FC7438-3043-436F-9315-589D32A095AC}.Release|x86.ActiveCfg = Release|Any CPU
 		{B3FC7438-3043-436F-9315-589D32A095AC}.Release|x86.Build.0 = Release|Any CPU
+		{CC494EF4-BB24-4DBB-90EB-82D40A1C8F36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC494EF4-BB24-4DBB-90EB-82D40A1C8F36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC494EF4-BB24-4DBB-90EB-82D40A1C8F36}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{CC494EF4-BB24-4DBB-90EB-82D40A1C8F36}.Debug|ARM.Build.0 = Debug|Any CPU
+		{CC494EF4-BB24-4DBB-90EB-82D40A1C8F36}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CC494EF4-BB24-4DBB-90EB-82D40A1C8F36}.Debug|x64.Build.0 = Debug|Any CPU
+		{CC494EF4-BB24-4DBB-90EB-82D40A1C8F36}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CC494EF4-BB24-4DBB-90EB-82D40A1C8F36}.Debug|x86.Build.0 = Debug|Any CPU
+		{CC494EF4-BB24-4DBB-90EB-82D40A1C8F36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC494EF4-BB24-4DBB-90EB-82D40A1C8F36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC494EF4-BB24-4DBB-90EB-82D40A1C8F36}.Release|ARM.ActiveCfg = Release|Any CPU
+		{CC494EF4-BB24-4DBB-90EB-82D40A1C8F36}.Release|ARM.Build.0 = Release|Any CPU
+		{CC494EF4-BB24-4DBB-90EB-82D40A1C8F36}.Release|x64.ActiveCfg = Release|Any CPU
+		{CC494EF4-BB24-4DBB-90EB-82D40A1C8F36}.Release|x64.Build.0 = Release|Any CPU
+		{CC494EF4-BB24-4DBB-90EB-82D40A1C8F36}.Release|x86.ActiveCfg = Release|Any CPU
+		{CC494EF4-BB24-4DBB-90EB-82D40A1C8F36}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
