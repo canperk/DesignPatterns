@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Container.cs" />
+    <Compile Include="IContainer.cs" />
     <Compile Include="Models\Base\ICommunication.cs" />
     <Compile Include="Models\Base\IDatabase.cs" />
     <Compile Include="Models\Base\IPayment.cs" />
