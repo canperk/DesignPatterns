@@ -1,0 +1,162 @@
+﻿<Page
+    x:Class="EduCare.DesignPatterns.ChainOfResponsibility.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:EduCare.DesignPatterns.ChainOfResponsibility.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Loaded="Page_Loaded"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Style x:Key="txtCountStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontStyle" Value="Italic" />
+        </Style>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="100" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <TextBlock
+                x:Name="txtLabel"
+                Margin="10,5,10,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                RelativePanel.AlignLeftWithPanel="True"
+                Text="Employee Name : " />
+            <StackPanel RelativePanel.RightOf="txtLabel">
+                <AutoSuggestBox
+                    x:Name="asbEmployees"
+                    MinWidth="300"
+                    PlaceholderText="Search"
+                    QueryIcon="Find"
+                    SuggestionChosen="asbEmployees_SuggestionChosen"
+                    TextChanged="asbEmployees_TextChanged" />
+            </StackPanel>
+        </RelativePanel>
+        <StackPanel Grid.Row="1" Margin="0,5,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="10,5,10,0" Text="Description : " />
+                <TextBox
+                    Name="txtDescription"
+                    Grid.Column="1"
+                    MinWidth="80"
+                    Margin="5,0,5,0" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="10,5,10,0" Text="Amount : " />
+                <TextBox
+                    Name="txtAmount"
+                    Grid.Column="1"
+                    MinWidth="80"
+                    Margin="5,0,5,0" />
+            </Grid>
+            <Button
+                Name="btnSaveExpense"
+                Grid.Column="1"
+                Margin="15,0,0,0"
+                HorizontalAlignment="Left"
+                Click="btnSaveExpense_Click"
+                Content="Save" />
+        </StackPanel>
+        <Grid Grid.Row="2">
+            <ListView x:Name="lstSubEmployees" SelectionChanged="lstSubEmployees_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="{Binding Path=Name}" />
+                            <TextBlock Grid.Row="1" Style="{StaticResource txtCountStyle}">
+                                <Run Foreground="DarkRed" Text="Expense Request Count : " />
+                                <Run Text="{Binding Path=ExpenseList.Count}" />
+                            </TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Expense Requests" />
+            <ListView x:Name="lstExpenses" Grid.Row="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="{Binding Path=Description}" />
+                            <TextBlock Grid.Row="1" Text="{Binding Path=Amount}" />
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button
+                Name="btnApprove"
+                Grid.Row="2"
+                Margin="15,0,0,0"
+                HorizontalAlignment="Left"
+                Content="Approve" />
+        </Grid>
+        <Border
+            Grid.Row="4"
+            Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+            BorderBrush="#FFD2D2D2"
+            BorderThickness="1">
+            <RelativePanel>
+                <TextBlock
+                    Name="CountTextBox"
+                    Margin="10,5,0,5"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    Text="Expense Count :" />
+                <TextBlock
+                    Name="txtExpenseCount"
+                    Margin="5,5,0,5"
+                    RelativePanel.RightOf="CountTextBox"
+                    Text="0" />
+                <TextBlock
+                    Margin="0,5,5,5"
+                    RelativePanel.LeftOf="VersionTextBlock"
+                    Text="Version:" />
+                <TextBlock
+                    Name="VersionTextBlock"
+                    Margin="0,5,10,5"
+                    RelativePanel.AlignRightWithPanel="True"
+                    Text="1.0.0" />
+                <StackPanel Orientation="Horizontal" RelativePanel.AlignHorizontalCenterWithPanel="True">
+                    <TextBlock Margin="0,5,5,5" Text="Current User : " />
+                    <TextBlock
+                        Name="txtCurrentUser"
+                        Margin="0,5,0,5"
+                        Text="" />
+                </StackPanel>
+
+            </RelativePanel>
+        </Border>
+    </Grid>
+</Page>
