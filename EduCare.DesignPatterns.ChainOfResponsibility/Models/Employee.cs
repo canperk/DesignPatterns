@@ -1,5 +1,6 @@
 ﻿using EduCare.DesignPatterns.ChainOfResponsibility.Models.Base;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace EduCare.DesignPatterns.ChainOfResponsibility.Models
 {
@@ -8,7 +9,7 @@ namespace EduCare.DesignPatterns.ChainOfResponsibility.Models
         public Employee()
         {
             SubEmployees = new List<Employee>();
-            ExpenseList = new List<Expense>();
+            ExpenseList = new ObservableCollection<Expense>();
         }
         private int _id;
         public int Id
@@ -58,11 +59,18 @@ namespace EduCare.DesignPatterns.ChainOfResponsibility.Models
             set { SetProperty(ref _approvalExpenseLimit, value); }
         }
 
-        private List<Expense> _expenseList;
-        public List<Expense> ExpenseList
+        private ObservableCollection<Expense> _expenseList;
+        public ObservableCollection<Expense> ExpenseList
         {
             get { return _expenseList; }
             set { _expenseList = value; }
+        }
+
+        private string _photoPath;
+        public string PhotoPath
+        {
+            get { return _photoPath; }
+            set { SetProperty(ref _photoPath, value); }
         }
 
     }

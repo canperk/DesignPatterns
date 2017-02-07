@@ -24,5 +24,12 @@ namespace EduCare.DesignPatterns.ChainOfResponsibility.Models
             set { SetProperty(ref _amount, value); }
         }
 
+        private DateTime _requestDate;
+        public DateTime RequestDate
+        {
+            get { return _requestDate; }
+            set { SetProperty(ref _requestDate, value); }
+        }
+
     }
 }

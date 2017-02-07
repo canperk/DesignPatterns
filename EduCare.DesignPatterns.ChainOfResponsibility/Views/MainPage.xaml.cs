@@ -26,43 +26,58 @@ namespace EduCare.DesignPatterns.ChainOfResponsibility.Views
         public Employee SelectedItem { get; set; }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            asbEmployees.ItemsSource = EmployeeData.Employees;
-            asbEmployees.DisplayMemberPath = "Name";
-            asbEmployees.TextMemberPath = "Name";
+            lstEmployees.ItemsSource = EmployeeData.Employees;
+            txtExpenseCount.Text = GetTotalCount().ToString();
         }
-
-        private void asbEmployees_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        private void lstEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (SelectedItem != null && SelectedItem.Name == sender.Text)
-                return;
-            asbEmployees.ItemsSource = EmployeeData.Employees.Where(i => i.Name.StartsWith(sender.Text));
-        }
-
-        private void asbEmployees_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
-        {
-            SelectedItem = args.SelectedItem as Employee;
+            SelectedItem = (sender as ListView).SelectedItem as Employee;
             txtCurrentUser.Text = SelectedItem.Name;
-            lstSubEmployees.ItemsSource = SelectedItem.SubEmployees;
+            var lstExpenses = FindChildControl<ListView>(hubList, "lstExpenses") as ListView;
+            lstExpenses.ItemsSource = SelectedItem.ExpenseList;
         }
 
-        private void btnSaveExpense_Click(object sender, RoutedEventArgs e)
+        private int GetTotalCount()
         {
+            var count = 0;
+            EmployeeData.Employees.ForEach(i => {
+                count += i.ExpenseList.Count;
+            });
+            return count;
+        }
+
+        private DependencyObject FindChildControl<T>(DependencyObject control, string ctrlName)
+        {
+            int childNumber = VisualTreeHelper.GetChildrenCount(control);
+            for (int i = 0; i < childNumber; i++)
+            {
+                var child = VisualTreeHelper.GetChild(control, i);
+                var fe = child as FrameworkElement;
+                if (fe == null) return null;
+
+                if (child is T && fe.Name == ctrlName)
+                    return child;
+                else
+                {
+                    var nextLevel = FindChildControl<T>(child, ctrlName);
+                    if (nextLevel != null)
+                        return nextLevel;
+                }
+            }
+            return null;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var txtDescription = FindChildControl<TextBox>(hubNew, "txtDescription") as TextBox;
+            var txtAmount = FindChildControl<TextBox>(hubNew, "txtAmount") as TextBox;
             var expense = new Expense
             {
                 Description = txtDescription.Text,
                 Amount = int.Parse(txtAmount.Text),
+                RequestDate = DateTime.Now
             };
-            //Add Manager's Expense List
-        }
-
-        private void lstSubEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (lstSubEmployees.SelectedItem == null)
-            {
-                lstExpenses.ItemsSource = null;
-                return;
-            }
-            lstExpenses.ItemsSource = (lstSubEmployees.SelectedItem as Employee).ExpenseList;
+            SelectedItem.ExpenseList.Add(expense);
         }
     }
 }

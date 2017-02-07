@@ -95,6 +95,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\DateConverter.cs" />
+    <Compile Include="Converters\NumberToVisibilityConverter.cs" />
     <Compile Include="Helper\EmployeeData.cs" />
     <Compile Include="Models\Base\BindableBase.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -111,6 +113,43 @@
     <None Include="EduCare.DesignPatterns.ChainOfResponsibility_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\person.png" />
+    <Content Include="Assets\Photos\Large\p1.jpg" />
+    <Content Include="Assets\Photos\Large\p10.jpg" />
+    <Content Include="Assets\Photos\Large\p11.jpg" />
+    <Content Include="Assets\Photos\Large\p12.jpg" />
+    <Content Include="Assets\Photos\Large\p13.jpg" />
+    <Content Include="Assets\Photos\Large\p14.jpg" />
+    <Content Include="Assets\Photos\Large\p15.jpg" />
+    <Content Include="Assets\Photos\Large\p16.jpg" />
+    <Content Include="Assets\Photos\Large\p17.jpg" />
+    <Content Include="Assets\Photos\Large\p18.jpg" />
+    <Content Include="Assets\Photos\Large\p2.jpg" />
+    <Content Include="Assets\Photos\Large\p3.jpg" />
+    <Content Include="Assets\Photos\Large\p4.jpg" />
+    <Content Include="Assets\Photos\Large\p5.jpg" />
+    <Content Include="Assets\Photos\Large\p6.jpg" />
+    <Content Include="Assets\Photos\Large\p7.jpg" />
+    <Content Include="Assets\Photos\Large\p8.jpg" />
+    <Content Include="Assets\Photos\Large\p9.jpg" />
+    <Content Include="Assets\Photos\Thumb\p1.jpg" />
+    <Content Include="Assets\Photos\Thumb\p10.jpg" />
+    <Content Include="Assets\Photos\Thumb\p11.jpg" />
+    <Content Include="Assets\Photos\Thumb\p12.jpg" />
+    <Content Include="Assets\Photos\Thumb\p13.jpg" />
+    <Content Include="Assets\Photos\Thumb\p14.jpg" />
+    <Content Include="Assets\Photos\Thumb\p15.jpg" />
+    <Content Include="Assets\Photos\Thumb\p16.jpg" />
+    <Content Include="Assets\Photos\Thumb\p17.jpg" />
+    <Content Include="Assets\Photos\Thumb\p18.jpg" />
+    <Content Include="Assets\Photos\Thumb\p2.jpg" />
+    <Content Include="Assets\Photos\Thumb\p3.jpg" />
+    <Content Include="Assets\Photos\Thumb\p4.jpg" />
+    <Content Include="Assets\Photos\Thumb\p5.jpg" />
+    <Content Include="Assets\Photos\Thumb\p6.jpg" />
+    <Content Include="Assets\Photos\Thumb\p7.jpg" />
+    <Content Include="Assets\Photos\Thumb\p8.jpg" />
+    <Content Include="Assets\Photos\Thumb\p9.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
