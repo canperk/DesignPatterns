@@ -113,7 +113,6 @@
     <None Include="EduCare.DesignPatterns.ChainOfResponsibility_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\person.png" />
     <Content Include="Assets\Photos\Large\p1.jpg" />
     <Content Include="Assets\Photos\Large\p10.jpg" />
     <Content Include="Assets\Photos\Large\p11.jpg" />
