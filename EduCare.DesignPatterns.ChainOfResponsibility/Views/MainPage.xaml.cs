@@ -1,19 +1,6 @@
-﻿using EduCare.DesignPatterns.ChainOfResponsibility.Helper;
-using EduCare.DesignPatterns.ChainOfResponsibility.Models;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Media.Animation;
 
 namespace EduCare.DesignPatterns.ChainOfResponsibility.Views
 {
@@ -22,62 +9,33 @@ namespace EduCare.DesignPatterns.ChainOfResponsibility.Views
         public MainPage()
         {
             InitializeComponent();
+            frmContent.ContentTransitions = new TransitionCollection();
+            frmContent.ContentTransitions.Add(new AddDeleteThemeTransition());
         }
-        public Employee SelectedItem { get; set; }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            lstEmployees.ItemsSource = EmployeeData.Employees;
-            txtExpenseCount.Text = GetTotalCount().ToString();
-        }
-        private void lstEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            SelectedItem = (sender as ListView).SelectedItem as Employee;
-            txtCurrentUser.Text = SelectedItem.Name;
-            var lstExpenses = FindChildControl<ListView>(hubList, "lstExpenses") as ListView;
-            lstExpenses.ItemsSource = SelectedItem.ExpenseList;
+            frmContent.Navigate(typeof(AllItems));
         }
 
-        private int GetTotalCount()
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {
-            var count = 0;
-            EmployeeData.Employees.ForEach(i => {
-                count += i.ExpenseList.Count;
-            });
-            return count;
+            splMenu.IsPaneOpen = !splMenu.IsPaneOpen;
         }
 
-        private DependencyObject FindChildControl<T>(DependencyObject control, string ctrlName)
+        private void btnHomePage_Click(object sender, RoutedEventArgs e)
         {
-            int childNumber = VisualTreeHelper.GetChildrenCount(control);
-            for (int i = 0; i < childNumber; i++)
-            {
-                var child = VisualTreeHelper.GetChild(control, i);
-                var fe = child as FrameworkElement;
-                if (fe == null) return null;
-
-                if (child is T && fe.Name == ctrlName)
-                    return child;
-                else
-                {
-                    var nextLevel = FindChildControl<T>(child, ctrlName);
-                    if (nextLevel != null)
-                        return nextLevel;
-                }
-            }
-            return null;
+            Navigate<AllItems>();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnRequestList_Click(object sender, RoutedEventArgs e)
         {
-            var txtDescription = FindChildControl<TextBox>(hubNew, "txtDescription") as TextBox;
-            var txtAmount = FindChildControl<TextBox>(hubNew, "txtAmount") as TextBox;
-            var expense = new Expense
-            {
-                Description = txtDescription.Text,
-                Amount = int.Parse(txtAmount.Text),
-                RequestDate = DateTime.Now
-            };
-            SelectedItem.ExpenseList.Add(expense);
+            Navigate<EmployeeRequests>();
+        }
+        private void Navigate<T>()
+        {
+            var type = typeof(T);
+            if (frmContent.Content.ToString() != type.FullName)
+                frmContent.Navigate(type);
         }
     }
 }

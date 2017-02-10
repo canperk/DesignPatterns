@@ -1,0 +1,139 @@
+﻿<Page x:Class="EduCare.DesignPatterns.ChainOfResponsibility.Views.AllItems"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:c="using:EduCare.DesignPatterns.ChainOfResponsibility.Converters"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:EduCare.DesignPatterns.ChainOfResponsibility.Views"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:model="using:EduCare.DesignPatterns.ChainOfResponsibility.Models"
+      Loaded="Page_Loaded"
+      mc:Ignorable="d">
+    <Page.Resources>
+        <Style x:Key="TextBlockCountStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontStyle" Value="Italic" />
+            <Setter Property="Foreground" Value="Crimson" />
+        </Style>
+        <c:NumberToVisibilityConverter x:Key="NumberConverter" />
+        <c:DateFormatConverter x:Key="DateConverter" />
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Margin="15,0,0,0"
+                   Style="{StaticResource SubheaderTextBlockStyle}"
+                   Text="Employees" />
+        <TextBlock Grid.Column="1"
+                   Margin="10,0,0,0"
+                   Style="{StaticResource SubheaderTextBlockStyle}"
+                   Text="User Expense Area" />
+        <ListView Name="lstEmployees"
+                  Grid.Row="1"
+                  IsItemClickEnabled="True"
+                  SelectionChanged="lstEmployees_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:Employee">
+                    <StackPanel Margin="15,10,0,10" Orientation="Horizontal">
+                        <Ellipse Width="45" Height="45">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{x:Bind PhotoPath}" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <StackPanel>
+                            <TextBlock Margin="10,0,0,0"
+                                       VerticalAlignment="Center"
+                                       FontSize="18"
+                                       Text="{Binding Name}" />
+                            <TextBlock Margin="10,0,0,0"
+                                       Style="{StaticResource TextBlockCountStyle}"
+                                       Visibility="{Binding Path=ExpenseList.Count,
+                                                            Converter={StaticResource NumberConverter}}">
+                                <Run Text="Pending Requests : " />
+                                <Run Text="{Binding Path=ExpenseList.Count}" />
+                            </TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Hub Header="Expenses">
+                <HubSection Name="hubNew" Header="New Request">
+                    <DataTemplate>
+                        <StackPanel Grid.Row="1"
+                                    MinWidth="350"
+                                    Margin="10">
+                            <TextBlock Text="Expense Description: " TextWrapping="Wrap" />
+                            <TextBox x:Name="txtDescription" TextWrapping="Wrap" />
+                            <TextBlock Text="Amount: " TextWrapping="Wrap" />
+                            <TextBox x:Name="txtAmount" TextWrapping="Wrap" />
+
+                            <Button Margin="0,30,0,0"
+                                    HorizontalAlignment="Right"
+                                    Click="Button_Click"
+                                    Content="Save Request" />
+                        </StackPanel>
+                    </DataTemplate>
+                </HubSection>
+                <HubSection Name="hubList" Header="Expense History">
+                    <DataTemplate>
+                        <ListView Name="lstExpenses"
+                                  Width="500"
+                                  Margin="10,0,0,0">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="10,0,0,0">
+                                        <TextBlock>
+                                            <Run FontSize="18" Text="{Binding Description}" />
+                                            <Run FontSize="9" Text="{Binding RequestDate, Converter={StaticResource DateConverter}}" />
+                                        </TextBlock>
+                                        <TextBlock FontSize="12" Text="{Binding Amount}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </DataTemplate>
+                </HubSection>
+            </Hub>
+        </Grid>
+        <Border Grid.Row="2"
+                Grid.ColumnSpan="2"
+                Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                BorderBrush="{ThemeResource AppBarBorderThemeBrush}"
+                BorderThickness="1">
+            <RelativePanel>
+                <TextBlock Name="CountTextBox"
+                           Margin="10,5,0,5"
+                           RelativePanel.AlignLeftWithPanel="True"
+                           Text="Expense Count :" />
+                <TextBlock Name="txtExpenseCount"
+                           Margin="5,5,0,5"
+                           RelativePanel.RightOf="CountTextBox"
+                           Text="0" />
+                <TextBlock Margin="0,5,5,5"
+                           RelativePanel.LeftOf="VersionTextBlock"
+                           Text="Version:" />
+                <TextBlock Name="VersionTextBlock"
+                           Margin="0,5,10,5"
+                           RelativePanel.AlignRightWithPanel="True"
+                           Text="1.0.0" />
+                <StackPanel Orientation="Horizontal" RelativePanel.AlignHorizontalCenterWithPanel="True">
+                    <TextBlock Margin="0,5,5,5" Text="Current User : " />
+                    <TextBlock Name="txtCurrentUser"
+                               Margin="0,5,0,5"
+                               Text="" />
+                </StackPanel>
+
+            </RelativePanel>
+        </Border>
+    </Grid>
+</Page>

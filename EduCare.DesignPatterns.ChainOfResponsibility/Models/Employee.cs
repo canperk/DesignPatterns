@@ -10,6 +10,7 @@ namespace EduCare.DesignPatterns.ChainOfResponsibility.Models
         {
             SubEmployees = new List<Employee>();
             ExpenseList = new ObservableCollection<Expense>();
+            ApproveList = new ObservableCollection<Expense>();
         }
         private int _id;
         public int Id
@@ -73,5 +74,11 @@ namespace EduCare.DesignPatterns.ChainOfResponsibility.Models
             set { SetProperty(ref _photoPath, value); }
         }
 
+        private ObservableCollection<Expense> _approveList;
+        public ObservableCollection<Expense> ApproveList
+        {
+            get { return _approveList; }
+            set { SetProperty(ref _approveList, value); }
+        }
     }
 }

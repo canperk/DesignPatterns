@@ -33,12 +33,12 @@ namespace EduCare.DesignPatterns.ChainOfResponsibility.Helper
 
             e3.ExpenseList.Add(new Expense() { Description = "Holiday", Amount = 600, RequestDate = new DateTime(2017, 1, 6) });
             e3.ExpenseList.Add(new Expense() { Description = "Transportation", Amount = 100, RequestDate = new DateTime(2017, 1, 6) });
-            e3.ExpenseList.Add(new Expense() { Description = "Lunch With Customers", Amount = 300, RequestDate = new DateTime(2017, 1, 6) });
+            e6.ExpenseList.Add(new Expense() { Description = "Lunch With Customers", Amount = 300, RequestDate = new DateTime(2017, 1, 6) });
             e13.ExpenseList.Add(new Expense() { Description = "Consultant Document Fee", Amount = 100, RequestDate = new DateTime(2017, 1, 6) });
             e3.ExpenseList.Add(new Expense() { Description = "Gas", Amount = 100, RequestDate = new DateTime(2017, 1, 6) });
-            e3.ExpenseList.Add(new Expense() { Description = "Special Reasons", Amount = 700, RequestDate = new DateTime(2017, 1, 6) });
+            e4.ExpenseList.Add(new Expense() { Description = "Special Reasons", Amount = 700, RequestDate = new DateTime(2017, 1, 6) });
             e3.ExpenseList.Add(new Expense() { Description = "School Payment For Children", Amount = 100, RequestDate = new DateTime(2017, 1, 6) });
-            e3.ExpenseList.Add(new Expense() { Description = "Keyboard - Mouse Set", Amount = 50, RequestDate = new DateTime(2017, 1, 6) });
+            e9.ExpenseList.Add(new Expense() { Description = "Keyboard - Mouse Set", Amount = 50, RequestDate = new DateTime(2017, 1, 6) });
             e7.ExpenseList.Add(new Expense() { Description = "Personal Stuffs", Amount = 300, RequestDate = new DateTime(2017, 1, 6) });
             e7.ExpenseList.Add(new Expense() { Description = "Health", Amount = 250, RequestDate = new DateTime(2017, 1, 6) });
             e7.ExpenseList.Add(new Expense() { Description = "Pre-Payment", Amount = 400, RequestDate = new DateTime(2017, 1, 6) });
